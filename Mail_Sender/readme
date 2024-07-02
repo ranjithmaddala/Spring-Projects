@@ -1,0 +1,6 @@
+Mail Sender is an Spring Application which allows you to send emails with msg/attachment using spring. 
+In application.properties file, username refers to <your email>. and password refers to the app password you created in security tab of google.
+If you don't have a app password, create a new app password. before that you must turn on the 2step verification.
+
+while running the application, if you got any exception like connection time out, please check the port numbers,
+username, password, and the location.

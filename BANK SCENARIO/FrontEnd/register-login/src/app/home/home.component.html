@@ -1,0 +1,61 @@
+
+<div class="heading">
+    <h2>Hi {{user.userName.toUpperCase()}}, Welcome to ABC Banking online Services</h2>
+</div>
+
+<div class="container my-5 servcards">
+    <h2 class="text-center mb-4">Here are the Services that we are providing!!! </h2>
+    <div class="row g-4">
+      <!-- Card 1 -->
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <div class="card h-100">
+          <img src="./assets/loans.jpg" class="card-img-top" alt="Card Image 1">
+          <div class="card-body">
+            <h3 class="card-title">Loans</h3>
+            <p class="card-text">We are providing different kinds of Loans, please have a look over our loans. please refer for terms and conditions.</p>
+            <a href="#" class="btn btn-secondary">Read More</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <div class="card h-100">
+          <img src="./assets/inv.jpg" class="card-img-top" alt="Card Image 2">
+          <div class="card-body">
+            <h3 class="card-title">Investments</h3>
+            <p class="card-text">We are providing the service to educate and do invest on our application. please refer for terms and conditions.</p>
+            <a href="#" class="btn btn-secondary">Learn More</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <div class="card h-100">
+          <img src="./assets/trans.jpg" class="card-img-top" alt="Card Image 3">
+          <div class="card-body">
+            <h3 class="card-title">Transactions</h3>
+            <p class="card-text">Here you can transfer the money from your account to our existing accounts.
+              <br>
+              ** please make sure that you're logged in to perform this action.
+            </p>
+            <a [routerLink]="['/transaction']" class="btn btn-secondary">Discover</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <div class="card h-100">
+          <img src="./assets/ONaccount.jpg" class="card-img-top" alt="Card Image 4">
+          <div class="card-body">
+            <h3 class="card-title">Open New Account</h3>
+            <p class="card-text">please clicek here if you wan tto open a new account with us. please refer for terms and conditions.</p>
+            <a href="#" class="btn btn-secondary">Explore</a>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+

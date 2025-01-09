@@ -1,0 +1,6 @@
+.about{
+    backdrop-filter: blur(80px);
+    background-color: grey;
+    border-radius: 15px;
+    padding: 30px;
+}

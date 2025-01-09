@@ -1,0 +1,35 @@
+<div class="container">
+
+    <div class="col-12 d-flex justify-content-center">
+        <table class="table table-bordered table-dark" style="margin-top: 2rem;">
+
+            <thead>
+                <tr>
+                    <td>Transaction ID</td>
+                    <td>Sender Account Number</td>
+                    <td>Receiver Account Number</td>
+                    <td>Receiver Account Name</td>
+                    <td>Receiver Email</td>
+                    <td>Amount Sent</td>
+                    <td>Transaction Date</td>
+                    <td>Satus</td>
+                </tr>
+            </thead>
+
+            <tr *ngFor="let tran of data" class="bg-secondary">
+                <td class="text-center">{{tran.transactionId}}</td>
+                <td class="text-center">{{tran.accountNumber}}</td>
+                <td class="text-center">{{tran.recAccountNumber}}</td>
+                <td class="text-center">{{tran.recAccountName}}</td>
+                <td class="text-center">{{tran.recEmail}}</td>
+                <td class="text-center">${{tran.amount}}</td>
+                <td class="text-center">{{tran.transactionDate}}</td>
+                <td class="text-center bg-{{tran.status==='Success' ? 'success' : 'danger' }}">{{tran.status}}</td>
+            </tr>
+
+        </table>
+    </div>
+    
+</div>
+
+

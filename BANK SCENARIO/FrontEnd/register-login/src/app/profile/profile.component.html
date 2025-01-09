@@ -1,0 +1,77 @@
+<div class="profile-container" align="center">
+    <h2>My Profile</h2>
+  
+    <!-- Display mode -->
+    <div *ngIf="!isEditing">
+
+      <i class="bi bi-person-circle profile-icon"></i>
+
+      <table>
+        <tr>
+          <td><strong>Name  </strong></td>
+          <td>:</td>
+          <td>{{user.userName.toUpperCase()}}</td>
+        </tr>
+        <tr>
+          <td><strong>Email  </strong></td>
+          <td>:</td>
+          <td>{{user.emailId}}</td>
+        </tr>
+        <tr>
+          <td><strong>Account Number  </strong></td>
+          <td>:</td>
+          <td>{{user.accountNumber}}</td>
+        </tr>
+        <tr>
+          <td><strong>Verified  </strong></td>
+          <td>:</td>
+          <td *ngIf="user.isVerified">Yes</td>
+          <td *ngIf="!user.isVerified">No</td>
+        </tr>
+        <tr>
+          <td><strong>Account Balance</strong></td>
+          <td>:</td>
+          <td>${{user.accountBalance}}</td>
+        </tr>
+      </table>
+      <button class="btn btn-secondary" (click)="editProfile()">Edit</button>
+    </div>
+  
+    <!-- Edit mode -->
+    <form *ngIf="isEditing" #profileForm="ngForm" (ngSubmit)="saveProfile(profileForm.value)">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          class="form-control"
+          [(ngModel)]="user.userName"
+          placeholder="Enter your name"
+        />
+      </div>
+  
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          class="form-control"
+          [(ngModel)]="user.emailId"
+          placeholder="Enter your email"
+        />
+      </div>
+      <button type="submit" class="btn bg-success">Save Profile</button>
+      <button type="button" (click)="cancelEdit()" class="btn bg-danger"> Cancel</button>
+    </form>
+
+    <div *ngIf="successMessage" class="alert alert-success mt-3">
+      {{ successMessage }}
+    </div>
+  </div>
+
+    
+  
+     
+  

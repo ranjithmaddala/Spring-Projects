@@ -1,0 +1,209 @@
+<body>
+    <div class="container">
+        <div class="row text-center text-light">
+            <marquee [scrollAmount]="25">
+                <h3 style="margin-top: 1rem;">Welcome to ABC Banking Online Services</h3>
+            </marquee>
+
+            <div class="login col-md-4 col-sm-8 col-10 mx-auto my-3 text-start" *ngIf="lf">
+                <h4 class="text-center">Login</h4> <br>
+                <form [formGroup]="logForm" (ngSubmit)="loginForm()">
+                    <div>
+                      <label for="userId">User ID</label>
+                      <input type="text" formControlName="userId" id="userId" class="form-control" placeholder="Enter email">
+                      <div *ngIf="logForm.controls['userId'].touched && logForm.controls['userId'].invalid">
+                        <small class="text-light text-center bg-danger" *ngIf="logForm.controls['userId'].errors?.['required']">
+                          email must be required
+                        </small>
+                        <small class="text-light text-center bg-danger" *ngIf="logForm.controls['userId'].errors?.['email']">
+                          Enter a valid email.
+                        </small>
+                      </div>
+                    </div>
+                        
+                    <div style="margin-top: 1rem;">
+                      <label for="password">Password</label>
+                      <input type="password" id="password" formControlName="password" class="form-control" placeholder="Enter password">
+
+                     <div *ngIf="logForm.controls['password'].touched && logForm.controls['password'].invalid">
+                      <small class="text-light text-center bg-danger" *ngIf="logForm.controls['password'].errors?.['required']">
+                        Password is required.
+                      </small>
+                      </div>
+                    </div>
+                    <div class="text-center" style="margin-top: 1rem;">
+                      <button type="submit" class="btn btn-success btn-block" [disabled]="!logForm.valid">Login</button>
+                    </div>  
+                    
+                </form>
+                <br>
+                <div class="logRespo" *ngIf="loginError.length>1">
+                  <span class="badge bg-danger"></span>
+                </div>
+                <h4>Not registered yet? <i (click)="toggle('reg')">Click here to register</i></h4>
+            
+            </div>
+
+
+            <div class="register container mt-2 p-4 text-light rounded" *ngIf="rf">
+              <h2 class="text-center mb-4">Register</h2>
+              <form [formGroup]="registerForm" (ngSubmit)="register()">
+                <!-- User Information -->
+                <div class="row g-2 d-flex justify-content-around">
+                  <div class="col-md-4">
+                    <label for="userName">User Name</label>
+                    <input 
+                      type="text" 
+                      id="userName" 
+                      formControlName="userName" 
+                      class="form-control w-30" 
+                      placeholder="Enter your name" 
+                      required
+                    >
+                    <div *ngIf="registerForm.controls['userName'].touched && registerForm.controls['userName'].invalid">
+                      <small class="text-light text-center bg-danger" *ngIf="registerForm.controls['userName'].errors?.['required']">
+                        User Name be required
+                      </small>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <label for="accountNumber">Account Number</label>
+                    <input 
+                      type="text" 
+                      id="accountNumber" 
+                      formControlName="accountNumber" 
+                      class="form-control" 
+                      placeholder="Enter 12-digit account number" 
+                      required
+                    >
+                    <div *ngIf="registerForm.controls['accountNumber'].touched && registerForm.controls['accountNumber'].invalid">
+                      <small class="text-light text-center bg-danger" *ngIf="registerForm.controls['accountNumber'].errors?.['required']">
+                        Account Number must be required
+                      </small>
+                      <small class="text-light text-center bg-danger" *ngIf="registerForm.controls['accountNumber'].errors?.['pattern']">
+                        Enter valid 12 digit Account Number.
+                      </small>
+                    </div>
+                  </div>
+                </div>
+            
+                
+                <div class="row g-2 mt-2 justify-content-around">
+                  <div class="col-4">
+                    <label for="emailId">Email</label>
+                    <input 
+                      type="email" 
+                      id="emailId" 
+                      formControlName="emailId" 
+                      class="form-control" 
+                      placeholder="Enter your email address" 
+                      required
+                    >
+                    <div *ngIf="registerForm.controls['emailId'].touched && registerForm.controls['emailId'].invalid">
+                      <small class="text-light text-center bg-danger" *ngIf="registerForm.controls['emailId'].errors?.['required']">
+                        email must be required
+                      </small>
+                      <small class="text-light text-center bg-danger" *ngIf="registerForm.controls['emailId'].errors?.['email']">
+                        Enter a valid email.
+                      </small>
+                    </div>
+                  </div>
+                </div>
+            
+                
+                <div class="row g-2 mt-2 justify-content-around">
+                  <div class="col-md-4">
+                    <label for="loginPass">Login Password</label>
+                    <input 
+                      type="password" 
+                      id="loginPass" 
+                      formControlName="loginPass" 
+                      class="form-control" 
+                      placeholder="Enter login password" 
+                      required
+                    >
+                    <div *ngIf="registerForm.controls['loginPass'].touched && registerForm.controls['loginPass'].invalid">
+                      <small class="text-light text-center bg-danger" *ngIf="registerForm.controls['loginPass'].errors?.['required']">
+                        this field must be required
+                      </small>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <label for="transactionPass">Transaction Password</label>
+                    <input 
+                      type="password" 
+                      id="transactionPass" 
+                      formControlName="transactionPass" 
+                      class="form-control" 
+                      placeholder="Enter transaction password" 
+                      required
+                    >
+                    <div *ngIf="registerForm.controls['transactionPass'].touched && registerForm.controls['transactionPass'].invalid">
+                      <small class="text-light text-center bg-danger" *ngIf="registerForm.controls['transactionPass'].errors?.['required']">
+                        this field must be required
+                      </small>
+                    </div>
+                  </div>
+                </div>
+            
+  
+                <div class="row g-2 mt-2 justify-content-around">
+                  <div class="col-md-4">
+                    <label for="cloginPass">Confirm Login Password</label>
+                    <input 
+                      type="password" 
+                      id="cloginPass" 
+                      formControlName="cLoginPass" 
+                      class="form-control" 
+                      placeholder="Re-enter login password" 
+                      required
+                    >
+                    <div *ngIf="registerForm.controls['cLoginPass'].touched && registerForm.controls['cLoginPass'].invalid">
+                      <small class="text-light text-center bg-danger" *ngIf="registerForm.controls['cLoginPass'].errors?.['required']">
+                        this field must be required
+                      </small>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <label for="cTransactioPass">Confirm Transaction Password</label>
+                    <input 
+                      type="password" 
+                      id="cTransactioPass" 
+                      formControlName="cTransactioPass" 
+                      class="form-control" 
+                      placeholder="Re-enter transaction password" 
+                      required
+                    >
+                    <div *ngIf="registerForm.controls['cTransactioPass'].touched && registerForm.controls['cTransactioPass'].invalid">
+                      <small class="text-light text-center bg-danger" *ngIf="registerForm.controls['cTransactioPass'].errors?.['required']">
+                        this field must be required
+                      </small>
+                    </div>
+                  </div>
+                </div>
+            
+                <!-- Submit Button -->
+                <div class="text-center g-2 mt-2">
+                  <button 
+                    type="submit" 
+                    class="btn btn-primary w-25" 
+                    [disabled]="!registerForm.valid">
+                    Register
+                  </button>
+                </div>
+              </form>
+
+                <br>
+                <div class="response" *ngIf="registered.length>1">
+                  <span class="badge bg-success">{{registered}}</span>
+                </div>
+
+                <div class="err-response" *ngIf="registerError.length>1">
+                  <span class="badge bg-danger">{{registerError}}</span>
+                </div>
+                <br>
+                <h4>Already have an account? <i (click)="toggle('log')">Click here to login</i></h4>
+            </div>
+        </div>
+    </div>
+</body>

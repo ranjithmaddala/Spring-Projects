@@ -1,0 +1,11 @@
+.login, .register{
+    backdrop-filter: blur(50px);
+    border-radius: 10px;
+    padding: 60px;
+}
+
+i{
+    color: blue;
+    cursor: pointer;
+}
+

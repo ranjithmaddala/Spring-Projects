@@ -1,0 +1,23 @@
+.heading{
+    color: rgb(255, 255, 255);
+    display: flex;
+    margin-top: 1rem;
+    justify-content: center;
+    backdrop-filter: blur(100px);
+}
+
+h2{
+    color: white;
+}
+
+.servcards{
+    padding: 1.3rem;
+    border: 3px white solid;
+    border-radius: 10px;
+    backdrop-filter: blur(80px);
+}
+
+.card-img-top{
+    height: 200px;
+    object-fit: cover;
+}

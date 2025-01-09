@@ -1,0 +1,90 @@
+/* General Profile Container Styling */
+.profile-container {
+  max-width: 90%; /* Adjust to screen size */
+  width: 600px; /* Set a max width */
+  height: auto;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: transparent;
+  backdrop-filter: blur(100px);
+  color: white;
+}
+
+/* Form Groups and Buttons */
+.form-group {
+  margin-bottom: 15px;
+}
+
+.alert {
+  margin-top: 20px;
+}
+
+button {
+  margin-right: 10px;
+}
+
+label, strong {
+  color: rgb(233, 255, 36);
+}
+
+/* Profile Icon Styling */
+.profile-icon {
+  font-size: 5rem; /* Default size for larger screens */
+  margin: 20px auto; /* Center on smaller screens */
+  display: block;
+}
+
+/* Table Styling */
+table {
+  margin: 20px auto;
+  width: 100%; /* Make table responsive */
+  border-collapse: collapse;
+  text-align: left;
+}
+
+/* Responsive Design Adjustments */
+@media (max-width: 768px) {
+  .profile-container {
+    padding: 15px; /* Reduce padding on smaller screens */
+  }
+
+  .profile-icon {
+    font-size: 3.5rem; /* Smaller icon for smaller screens */
+  }
+
+  table {
+    font-size: 14px; /* Reduce font size in table for readability */
+  }
+
+  button {
+    margin-right: 5px; /* Adjust button spacing */
+    padding: 8px 12px; /* Scale button size */
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-container {
+    max-width: 100%;
+    padding: 10px; /* Further reduce padding */
+    border-radius: 4px; /* Adjust corner radius */
+  }
+
+  .profile-icon {
+    font-size: 3rem; /* Smaller icon for very small screens */
+  }
+
+  label, strong {
+    font-size: 12px; /* Adjust font size for labels */
+  }
+
+  table {
+    font-size: 12px; /* Further reduce table font size */
+  }
+
+  button {
+    font-size: 12px; /* Smaller button text */
+    padding: 6px 10px;
+  }
+}
